@@ -10,7 +10,7 @@ dependencies = []
 dev-dependencies = [
     "pytest>=8.3.2",
     "mypy>=1.11.1",
-    "ruff>=0.5.7",
+    "ruff>=0.8.6",
     "jupyter>=1.1.1",
     "ipykernel>=6.29.5",
 ]
@@ -43,44 +43,95 @@ skip-magic-trailing-comma = false
 
 [tool.ruff.lint]
 select = [
-    # pycodestyle
-    "E",
-    # Pyflakes
-    "F",
-    # pyupgrade
-    "UP",
-    # flake8-bugbear
-    "B",
-    # flake8-simplify
-    "SIM",
-    # isort
-    "I",
+    "F",      # Pyflakes
+    "E",      # Pycodestyle Error
+    "W",      # Pycodestyle Warning
+    "N",      # PEP8-naming
+    "UP",     # Pyupgrade
+    "C90",    # mccabe
+    "I",      # isort
+    "YTT",    # flake8-2020
+    "ANN002", # flake8-annotations -- Missing type annotation for *{name}
+    "ANN003", # flake8-annotations -- Missing type annotation for **{name}
+    "ASYNC",  # flake8-async
+    "S",      # flake8-bandit
+    "B",      # flake8-bugbear
+    "BLE",    # flake8-blind-except
+    "A",      # flake8-builtins
+    "C4",     # flake8-comprehensions
+    "DTZ",    # flake8-datetimez
+    "ISC",    # flake8-implicit-str-concat
+    "INP001", # flake8-no-pep420 -- File {filename} is part of an implicit namespace package
+    "PIE",    # flake8-pie
+    "PYI",    # flake8-pyi
+    "RSE",    # flake8-raise
+    "SLF",    # flake8-SLF
+    "SLOT",   # flake8-slots
+    "SIM",    # flake8-simplify
+    "FIX",    # flake8-fixme
+    "PD",     # pandas-vet
+    "PL",     # Pylint
+    "FLY",    # flynt
+    "NPY",    # Numpy-specific rules
+    "PERF",   # Perflint
+    "FURB",   # refurb
+    "RUF",    # Ruff
+    # "D",    # pydocstyle
+    # "FBT",  # flake8-boolean-trap
+    # "COM",  # flake8-commas
+    # "CPY",  # flake8-copyright
+    # "T10",  # flake8-debugger
+    # "DJ",   # flake8-django
+    # "EM",   # flake8-errmsg
+    # "EXE",  # flake8-executable
+    # "FA",   # flake8-future-annotations
+    # "ICN",  # flake8-import-conventions
+    # "LOG",  # flake8-logging
+    # "G",    # flake8-logging-format
+    # "T",    # flake8-print
+    # "PT",   # flake8-pytest-style
+    # "RET",  # flake8-return
+    # "TID",  # flake8-tidy-imports
+    # "TC",   # flake8-type-checking
+    # "INT",  # flake8-gettext
+    # "ARG",  # flake8-unused-arguments
+    # "PTH",  # flake8-use-pathlib
+    # "TD",   # flake8-todos
+    # "ERA",  # eradicate -- Found commented-out code
+    # "PGH",  # pygrep-hooks
+    # "TRY",  # tryceratops
+    # "FAST", # FastAPI
+    # "AIR",  # Airflow
+    # "DOC",  # pydoclint
 ]
 
 # https://docs.astral.sh/ruff/rules/
 ignore = [
-    "F401",
-    "W293",
-    "E111",
-    "E114",
-    "E402",
-    "E501",
-    # https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
-    # Use ternary operator {contents} instead of if-else-block
-    "SIM108",
-    # Combine if branches using logical or operator
-    "SIM114",
-    # Use `key in dict` instead of `key in dict.keys()`
-    "SIM118",
+    "F401",   # Unused import
+    "E402",   # Module level import not at top of cell
+    "E501",   # Line too long ({width} > {limit})
+    "S101",   # Use of assert detected
+    "SIM108", # Use ternary operator {contents} instead of if-else-block
+    "SIM114", # Combine if branches using logical or operator
+    "SIM118", # Use `key in dict` instead of `key in dict.keys()`
+
+    # Formatter Conflict
+    "W191",   # Checks for indentation that uses tabs
+    "E111",   # Checks for indentation with a non-multiple of 4 spaces
+    "E114",   # Checks for indentation of comments with a non-multiple of 4 spaces
+    "E117",   # Checks for over-indented code.
+    "D206",   # Checks for docstrings that are indented with tabs
+    "D300",   # Checks for docstrings that use '''triple single quotes''' instead of """triple double quotes"""
+    "Q000",   # Checks for inline strings that use single quotes or double quotes
+    "Q001",   # Checks for multiline strings that use single quotes or double quotes
+    "Q002",   # Checks for docstrings that use single quotes or double quotes
+    "Q003",   # Checks for strings that include escaped quotes
+    "COM812", # Checks for the absence of trailing commas
+    "COM819", # Checks for the presence of prohibited trailing commas
+    "ISC001", # Checks for implicitly concatenated strings on a single line
+    "ISC002", # Checks for implicitly concatenated strings that span multiple lines
 ]
 
-[tool.ruff.lint.flake8-annotations]
-# Whether to suppress ANN401 for dynamically typed *args and **kwargs arguments.
-allow-star-arg-any = true
-
-[tool.ruff.lint.flake8-implicit-str-concat]
-# Whether to allow implicit string concatenations for multiline strings. By default, implicit concatenations of multiline strings are allowed (but continuation lines, delimited with a backslash, are prohibited).
-allow-multiline = false
 
 [tool.ruff.lint.isort]
 case-sensitive = true
