@@ -4,12 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.8"
-dependencies = []
 
 [tool.uv]
 dev-dependencies = [
-    "pytest>=8.3.2",
-    "mypy>=1.11.1",
+    "pytest>=8.3.4",
+    "mypy>=1.14.1",
     "ruff>=0.8.6",
     "jupyter>=1.1.1",
     "ipykernel>=6.29.5",
