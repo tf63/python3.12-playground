@@ -40,6 +40,7 @@ docstring-code-line-length = "dynamic"
 docstring-code-format = true
 skip-magic-trailing-comma = false
 
+# https://docs.astral.sh/ruff/rules/
 [tool.ruff.lint]
 select = [
     "F",      # Pyflakes
@@ -104,7 +105,6 @@ select = [
     # "DOC",  # pydoclint
 ]
 
-# https://docs.astral.sh/ruff/rules/
 ignore = [
     "F401",   # Unused import
     "E402",   # Module level import not at top of cell
@@ -130,7 +130,6 @@ ignore = [
     "ISC001", # Checks for implicitly concatenated strings on a single line
     "ISC002", # Checks for implicitly concatenated strings that span multiple lines
 ]
-
 
 [tool.ruff.lint.isort]
 case-sensitive = true
